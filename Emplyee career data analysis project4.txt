@@ -1,0 +1,66 @@
+#EMPOYEE CAREER DATA ANALYSIS Project
+import pandas as pd 
+import numpy as np
+import plotly.express as px
+import plotly.graph_objects as go
+data = pd.read_csv(r'C:\Users\patid\Desktop\Python\python day 24 Your Career Aspirations of GenZ.csv')
+print(data)
+a = data.columns
+print(a)
+country = data['Your Current Country.'].value_counts()
+label = country.index
+counts = country.values
+colors = ['red','lightgreen']
+fig = go.Figure(data = [go.Pie(labels = label,values = counts)])
+fig.update_layout(title_text = "Current Country")
+fig.update_traces(hoverinfo = 'label+value',textinfo = 'percent',textfont_size = 30,
+                  marker = dict(colors = colors,line = dict(color = 'black',width = 3) ))
+fig.show()
+# Facctors influencing career aspiration
+'''question1 = data['Which of the below factors influence the most about your career aspirations ?'].values
+label = question1.index
+counts = question1.values
+colors = ['gold','lightgreen']
+fig = go.Figure(data = [go.Pie(labels = label,values = counts)])
+fig.update_layout(title_text = "Factors influencing career aspirations")
+fig.update_traces(hoverinfo = 'label+value',textinfo = 'percent',textfont_size = 30,
+                  marker = dict(colors = colors,line = dict(color = 'black',width = 3) ))
+fig.show()'''
+
+
+#OBJECTIVE 2
+question2 = 'Would you definitely pursue a Higher Education / Post Graduation outside of India ? If only you have to self sponsor it.'
+question2 = data[question2].value_counts()
+label = question2.index
+counts = question2.values
+colors = ['orange','black']
+fig = go.Figure(data = [go.Pie(labels = label,values = counts)])
+fig.update_layout(title_text = "Factors influencing career aspirations")
+fig.update_traces(hoverinfo = 'label+value',textinfo = 'percent',textfont_size = 30,
+                  marker = dict(colors = colors,line = dict(color = 'black',width = 3) ))
+fig.show()
+
+# OBJECTIVE 3
+question3 = "How likely is that you will work for one employer for 3 years or more ?"
+question3 = data[question3].value_counts()
+label = question3.index
+counts = question3.values
+colors = ['aqua','black']
+fig = go.Figure(data = [go.Pie(labels = label,values = counts)])
+fig.update_layout(title_text = "How likely is that you will work in one company .")
+fig.update_traces(hoverinfo = 'label+value',textinfo = 'percent',textfont_size = 30,
+                  marker = dict(colors = colors,line = dict(color = 'black',width = 3) ))
+fig.show()
+
+
+# OBJECTIVE 4
+question4 = "What is the most preferred working environment for you."
+question4= data[question4].value_counts()
+label = question4.index
+counts = question4.values
+colors = ['aqua','black']
+fig = go.Figure(data = [go.Pie(labels = label,values = counts)])
+fig.update_layout(title_text = "How likely is that you will work in one co .")
+fig.update_traces(hoverinfo = 'label+value',textinfo = 'percent',textfont_size = 30,
+                  marker = dict(colors = colors,line = dict(color = 'black',width = 3) ))
+fig.show()
